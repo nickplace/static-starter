@@ -19,6 +19,7 @@ var devConfig = JSON.parse(fs.readFileSync('./variables.json'));
 var liveConfig = JSON.parse(request('GET', config.config_url).getBody());
 var ico = require('gulp-to-ico');
 var run = require('gulp-run-command').default;
+var liquify = require('gulp-liquify');
 
 // optimize images and put them in the dist folder
 gulp.task('images', function() {
@@ -55,7 +56,7 @@ gulp.task('sass:dist', function() {
 
 //build files for creating a dist release
 gulp.task('build:dist', ['clean'], function(cb) {
-  runSequence(['build', 'copy', 'copy:assets', 'images'], 'html', 'favicon', 'clean:dist', 'inject:prod', cb);
+  runSequence(['build', 'copy', 'copy:assets', 'images'], 'html', 'favicon', 'clean:dist', 'inject:prod', 'liquify', cb);
 });
 
 //build files for development
@@ -172,7 +173,7 @@ gulp.task('serve', function() {
 			server: ['build', config.dev]
 		});
 	});
-	gulp.watch(config.html, ['inject:dev', reload]);
+	gulp.watch(config.html, ['inject:dev','liquify', reload]);
 	gulp.watch(config.scss, ['sass', reload]);
 	gulp.watch([config.base + '/**/*', '!' + config.html, '!' + config.scss], ['copy:dev:assets', reload]);
 });
@@ -218,3 +219,12 @@ gulp.task('default', ['serve']);
 
 // Export contents of sketch file
 gulp.task('sketch', run('sketchtool export slices --compact=YES --save-for-web=YES sketch/static-starter-v2.sketch --output=client/img'))
+
+//liquify
+
+gulp.task("liquify", function() {
+  var locals = {};
+  gulp.src(config.base + '/**/*.html')
+    .pipe(liquify(locals, { base: "../components/" }))
+    .pipe(gulp.dest(config.dist))
+});
