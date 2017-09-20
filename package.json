@@ -20,6 +20,7 @@
     "gulp-if": "^1.2.5",
     "gulp-imagemin": "^2.2.1",
     "gulp-inject-string": "^1.1.0",
+    "gulp-liquid": "^0.1.0",
     "gulp-load-plugins": "^0.10.0",
     "gulp-minify-html": "^1.0.6",
     "gulp-notify": "^2.2.0",
@@ -38,5 +39,8 @@
   },
   "engines": {
     "node": ">=0.10.x"
+  },
+  "dependencies": {
+    "shopify-liquid": "^1.9.0"
   }
 }
