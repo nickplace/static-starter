@@ -4,8 +4,8 @@
 <!--[if gt IE 8]><html lang="en-US" class="ie new-ie"><![endif]-->
 <!--[if !IE]><!--><html lang="en-US"><!--<![endif]-->
 <head>
-	
-	
+
+
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//google-analytics.com">
 
@@ -13,7 +13,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="apple-mobile-web-app-capable" content="yes"/>
-	
+
 	<title><% page_title %></title>
 	<meta name="description" content="<% page_description %>"/>
 	<meta name="author" content="<% site_name %>"/>
@@ -38,7 +38,7 @@
 		if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
 		else window.addEventListener('load', loadDeferredStyles);
 	</script>
-	
+
 	<link rel="shortcut icon" href="/favicon.ico">
 	<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon.png">
@@ -68,11 +68,7 @@
 </head>
 <body>
 
-  {% include 'header' %}
-
-	<header class="padding-top-10 padding-bottom-10 padding-top-md-40 padding-bottom-md-40 bg-secondary">
-		<h1><a class="logo" href="/"><% company_name %></a></h1>
-	</header>
+  {% include 'components/header' %}
 
 	<section class="container margin-top-40">
 		<div class="row">
@@ -458,19 +454,7 @@ Button with icon</a></li>
 
 	<hr class="margin-top-40 margin-bottom-40"/>
 
-	<footer class="container margin-top-40 margin-bottom-40">
-		<div class="row align-items-center">
-			<div class="col-md-5 text-center text-md-left">
-				<p class="margin-bottom-0">&copy; <% year %> <% company_name %></p>
-			</div>
-			<div class="col-md-2 justify-content-center">
-				<a class="logo emblem" href="/"><% company_name %></a>
-			</div>
-			<div class="col-md-5 text-center text-md-right">
-				<p class="margin-bottom-0">Built by: <a href="https://wearedamage.com" target="_blank">Damage</a></p>
-			</div>
-		</div>
-	</footer>
+	{% include 'components/footer' %}
 
 	<!-- build:js /assets/js/vendor.js  defer-->
 	<script type="text/javascript" src="/vendor/jquery/dist/jquery.min.js"  defer></script>

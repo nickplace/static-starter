@@ -166,7 +166,7 @@ gulp.task('clean:dist', del.bind(null, [
 
 //run the server after having built generated files, and watch for changes
 gulp.task('serve', function() {
-	runSequence('build', 'inject:dev', function() {
+	runSequence('build', 'liquify', 'inject:dev', function() {
 		browserSync({
 			notify: false,
 			logPrefix: pkg.name,
@@ -174,6 +174,7 @@ gulp.task('serve', function() {
 		});
 	});
 	gulp.watch(config.html, ['inject:dev','liquify', reload]);
+  gulp.watch([config.base + '/**/*.liquid'], ['inject:dev','liquify', reload]);
 	gulp.watch(config.scss, ['sass', reload]);
 	gulp.watch([config.base + '/**/*', '!' + config.html, '!' + config.scss], ['copy:dev:assets', reload]);
 });
@@ -225,6 +226,6 @@ gulp.task('sketch', run('sketchtool export slices --compact=YES --save-for-web=Y
 gulp.task("liquify", function() {
   var locals = {};
   gulp.src(config.base + '/**/*.html')
-    .pipe(liquify(locals, { base: "../components/" }))
-    .pipe(gulp.dest(config.dist))
+    .pipe(liquify(locals))
+    .pipe(gulp.dest(config.dev))
 });
