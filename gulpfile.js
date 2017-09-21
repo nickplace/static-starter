@@ -56,7 +56,7 @@ gulp.task('sass:dist', function() {
 
 //build files for creating a dist release
 gulp.task('build:dist', ['clean'], function(cb) {
-  runSequence(['build', 'copy', 'copy:assets', 'images'], 'html', 'favicon', 'clean:dist', 'inject:prod', 'liquify', cb);
+  runSequence(['build', 'copy', 'copy:assets', 'images'], 'html', 'favicon', 'clean:dist', 'inject:prod', 'liquify:dist', cb);
 });
 
 //build files for development
@@ -226,6 +226,13 @@ gulp.task('sketch', run('sketchtool export slices --compact=YES --save-for-web=Y
 gulp.task("liquify", function() {
   var locals = {};
   gulp.src(config.base + '/**/*.html')
-    .pipe(liquify(locals))
-    .pipe(gulp.dest(config.dev))
+  .pipe(liquify(locals, { base: config.base + '/components/' }))
+  .pipe(gulp.dest(config.dev))
+});
+
+gulp.task("liquify:dist", function() {
+  var locals = {};
+  gulp.src(config.dist + '/**/*.html')
+    .pipe(liquify(locals, { base: config.base + '/components/' }))
+    .pipe(gulp.dest(config.dist))
 });
