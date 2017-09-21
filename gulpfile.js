@@ -104,7 +104,8 @@ gulp.task('copy', function() {
   return gulp.src([
       config.base + '/*',
       '!' + config.base + '/*.html',
-      '!' + config.base + '/src'
+      '!' + config.base + '/src',
+      '!' + config.base + '/components'
     ]).pipe(gulp.dest(config.dist))
     .pipe($.size({
       title: 'copy'
@@ -115,7 +116,8 @@ gulp.task('copy', function() {
 gulp.task('copy:dev', function() {
   return gulp.src([
       config.base + '/**/*',
-      '!' + config.base + '/src'
+      '!' + config.base + '/src',
+      '!' + config.base + '/components'
     ]).pipe(gulp.dest(config.dev))
     .pipe($.size({
       title: 'copy'
@@ -127,7 +129,8 @@ gulp.task('copy:dev:assets', function() {
   return gulp.src([
       config.base + '/**/*',
       '!' + config.base + '/src',
-      '!' + config.base + '/**/*.html'
+      '!' + config.base + '/**/*.html',
+      '!' + config.base + '/components'
     ]).pipe(gulp.dest(config.dev))
     .pipe($.size({
       title: 'copy'
