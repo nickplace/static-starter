@@ -17,7 +17,7 @@ body {
 	.hero {
 		background: rgba(255,255,255,1);
 		max-width: 30em;
-		border-radius: 2em;
+		border-radius: 1.7em;
 		margin: $grid-gutter-width-base*2 auto;
 		padding: $grid-gutter-width-base;
 		padding-bottom:$grid-gutter-width-base/2;
@@ -26,6 +26,7 @@ body {
 			margin-top: 1em;
 		}
 		.btn {
+			display: block;
 			margin-top: .5em;
 		}
 	}
