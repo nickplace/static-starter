@@ -3,29 +3,35 @@
 /////////////////////////////////////////////////////////
 
 // Overides for home page here
-.home {
-	background: black url(/img/backgrounds/dyer-skinner-son-of-a-bitch.jpg) no-repeat center center;
+body {
+	background: $primary url(/img/backgrounds/dyer-skinner-son-of-a-bitch.jpg) fixed no-repeat center center;
 	background-size: cover;
-	min-height: 100vh;
+
+}
+.home {
+	min-height: 200vh;
 
 	.row {
 		margin: 0 $grid-gutter-width-base;
 	}
 	.hero {
-		background: rgba(255,255,255,.9);
+		background: rgba(255,255,255,1);
 		max-width: 30em;
 		border-radius: .5em;
 		margin: $grid-gutter-width-base*2 auto;
 		padding: $grid-gutter-width-base;
 		padding-bottom:$grid-gutter-width-base/2;
-		text-align:center;
+		// text-align:center;
 		.cta {
 			margin-top: 1em;
+		}
+		.btn {
+			margin-top: .5em;
 		}
 	}
 
 	.credits {
-		position: absolute;
+		position: fixed;
 		bottom: 0;
 		right: 0;
 		left: 0;
