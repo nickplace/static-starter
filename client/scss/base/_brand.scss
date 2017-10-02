@@ -3,18 +3,19 @@
 /////////////////////////////////////////////////////////
 
 // Setup
-$logowidth: 184px!default;
-$logoheight: 50px!default;
+$logowidth: 198px!default;
+$logoheight: 61px!default;
 $emblem: 50px!default;
 
 
 .logo {
 	display: block;
 	@include text-hide();
-	background: url(/img/brand/logo/primary.svg) no-repeat center center;
+	background: url(/img/brand/logo/primary.svg) no-repeat left center;
 	background-size: $logowidth $logoheight;
 	width: $logowidth;
 	height: $logoheight;
+
 	&.center {
 		margin:0 auto;
 	}

@@ -3,4 +3,38 @@
 /////////////////////////////////////////////////////////
 
 // Overides for home page here
-.home {}
+.home {
+	background: black url(/img/backgrounds/dyer-Healing-Medicine.jpg) no-repeat center center;
+	background-size: cover;
+	min-height: 100vh;
+
+	.hero {
+		background: white;
+		border-radius: 1em;
+		margin: $grid-gutter-width-base;
+		padding: $grid-gutter-width-base;
+		padding-bottom:$grid-gutter-width-base/2;
+	}
+
+	.credits {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		padding: $grid-gutter-width-base;
+		h1 {
+			position: absolute;
+			bottom:$grid-gutter-width-base;
+
+		}
+		.artist {
+			position: absolute;
+			bottom:$grid-gutter-width-base/2;
+			right:$grid-gutter-width-base/2;
+			a {
+				color: white;
+				font-weight: bold
+			}
+		}
+	}
+}
