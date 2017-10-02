@@ -4,16 +4,24 @@
 
 // Overides for home page here
 .home {
-	background: black url(/img/backgrounds/dyer-Healing-Medicine.jpg) no-repeat center center;
+	background: black url(/img/backgrounds/dyer-skinner-son-of-a-bitch.jpg) no-repeat center center;
 	background-size: cover;
 	min-height: 100vh;
 
+	.row {
+		margin: 0 $grid-gutter-width-base;
+	}
 	.hero {
-		background: white;
-		border-radius: 1em;
-		margin: $grid-gutter-width-base;
+		background: rgba(255,255,255,.9);
+		max-width: 30em;
+		border-radius: .5em;
+		margin: $grid-gutter-width-base*2 auto;
 		padding: $grid-gutter-width-base;
 		padding-bottom:$grid-gutter-width-base/2;
+		text-align:center;
+		.cta {
+			margin-top: 1em;
+		}
 	}
 
 	.credits {
@@ -28,6 +36,7 @@
 
 		}
 		.artist {
+			display: none;
 			position: absolute;
 			bottom:$grid-gutter-width-base/2;
 			right:$grid-gutter-width-base/2;

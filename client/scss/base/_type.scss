@@ -4,7 +4,7 @@
 
 // Type Defaults
 //// Base
-$hfont : 'Roboto', sans-serif !default;
+$hfont : sans-serif !default;
 $bfont : $hfont !default;
 $line-height-base: 1.5!default;
 //// Mobile Sizes
@@ -49,13 +49,13 @@ body {
 //// Defaults
 .heading {
 	font-family: $hfont;
-	font-weight: 300;
+	font-weight: 400;
 	color: $headingcolor;
 	strong {font-weight: 400;}
 }
 .body {
 	font-family: $bfont;
-	font-weight: 300;
+	font-weight: 400;
 	color: $bodycolor;
 }
 //// Mobile
